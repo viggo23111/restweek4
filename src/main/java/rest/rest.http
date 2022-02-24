@@ -1,0 +1,35 @@
+POST http://localhost:8080/devops_starter_war_exploded/api/person/
+Content-Type: application/json
+
+{
+  "fName": "Steve",
+  "lName": "Lupi",
+  "phone": "3232323"
+
+}
+
+###
+
+GET http://localhost:8080/devops_starter_war_exploded/api/person/1
+
+###
+
+GET http://localhost:8080/devops_starter_war_exploded/api/person/all
+
+###
+
+PUT http://localhost:8080/devops_starter_war_exploded/api/person/2
+Content-Type: application/json
+
+{
+
+  "lName": "Buchholz",
+  "phone": "232334"
+
+}
+
+###
+
+DELETE http://localhost:8080/devops_starter_war_exploded/api/person/6
+
+###
