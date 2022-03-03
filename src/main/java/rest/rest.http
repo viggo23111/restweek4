@@ -1,10 +1,10 @@
-POST http://localhost:8080/devops_starter_war_exploded/api/person/
+POST https://vikhub.dk/person/api/person/
 Content-Type: application/json
 
 {
-  "fName": "Steve",
-  "lName": "Lupi",
-  "phone": "3232323"
+  "fName": "vincent",
+  "lName": "buchholz",
+  "phone": "345522"
 
 }
 
@@ -14,7 +14,7 @@ GET http://localhost:8080/devops_starter_war_exploded/api/person/1
 
 ###
 
-GET http://localhost:8080/devops_starter_war_exploded/api/person/all
+GET https://vikhub.dk/person/api/person/all
 
 ###
 
