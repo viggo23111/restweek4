@@ -2,6 +2,7 @@ package facades;
 
 import dtos.PersonDTO;
 import dtos.RenameMeDTO;
+import entities.Address;
 import entities.Person;
 import entities.RenameMe;
 import errorhandling.ExceptionDTO;
@@ -66,6 +67,7 @@ public class PersonFacade implements IPersonFacade {
         }
         return new PersonDTO(p);
     }
+
     @Override
     public Person deletePerson(long id) throws PersonNotFoundException {
         EntityManager em = getEntityManager();

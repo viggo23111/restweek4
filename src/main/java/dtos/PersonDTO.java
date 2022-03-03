@@ -1,15 +1,21 @@
 package dtos;
 
+import entities.Address;
 import entities.Person;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class PersonDTO {
     private long id;
     private String fName;
     private String lName;
     private String phone;
+    private String city;
+    private String zip;
+    private String street;
+
 
     public PersonDTO(Person p) {
         if(p.getId() != null)
@@ -17,6 +23,12 @@ public class PersonDTO {
         this.fName = p.getFirstName();
         this.lName = p.getLastName();
         this.phone = p.getPhone();
+
+        if(p.getAddress()!=null) {
+            this.city = p.getAddress().getCity();
+            this.zip = p.getAddress().getZip();
+            this.street = p.getAddress().getStreet();
+        }
     }
 
     public PersonDTO(String fn, String ln, String phone) {
@@ -65,6 +77,7 @@ public class PersonDTO {
         persons.forEach(person->personDTOS.add(new PersonDTO(person)));
         return personDTOS;
     }
+
     @Override
     public String toString() {
         return "PersonDTO{" +
@@ -72,7 +85,23 @@ public class PersonDTO {
                 ", fName='" + fName + '\'' +
                 ", lName='" + lName + '\'' +
                 ", phone='" + phone + '\'' +
+                ", city='" + city + '\'' +
+                ", zip='" + zip + '\'' +
+                ", street='" + street + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PersonDTO personDTO = (PersonDTO) o;
+        return id == personDTO.id && Objects.equals(fName, personDTO.fName) && Objects.equals(lName, personDTO.lName) && Objects.equals(phone, personDTO.phone) && Objects.equals(city, personDTO.city) && Objects.equals(zip, personDTO.zip) && Objects.equals(street, personDTO.street);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, fName, lName, phone, city, zip, street);
     }
 }
 
